@@ -1,23 +1,43 @@
 {
   "overall": {
-    "graphrag_accuracy": 0.0,
-    "flatrag_accuracy": 0.0,
-    "accuracy_delta": 0.0,
-    "graphrag_hallucination_rate": 0.6,
-    "flatrag_hallucination_rate": 0.6,
-    "graphrag_avg_latency_ms": 124.6,
-    "flatrag_avg_latency_ms": 134.8
+    "graphrag_accuracy": 0.1,
+    "flatrag_accuracy": 0.42,
+    "accuracy_delta": -0.32,
+    "graphrag_hallucination_rate": 0.46,
+    "flatrag_hallucination_rate": 0.28,
+    "graphrag_avg_latency_ms": 74.92,
+    "flatrag_avg_latency_ms": 49.36
   },
   "by_hop": {
     "2": {
-      "graphrag_accuracy": 0.0,
-      "flatrag_accuracy": 0.0
+      "graphrag_accuracy": 0.1,
+      "flatrag_accuracy": 0.45
+    },
+    "3+": {
+      "graphrag_accuracy": 0.1,
+      "flatrag_accuracy": 0.3
     }
   },
   "by_category": {
     "family_lineage": {
       "graphrag_accuracy": 0.0,
-      "flatrag_accuracy": 0.0
+      "flatrag_accuracy": 0.5
+    },
+    "political_allegiance": {
+      "graphrag_accuracy": 0.1,
+      "flatrag_accuracy": 0.7
+    },
+    "conflict_causality": {
+      "graphrag_accuracy": 0.1,
+      "flatrag_accuracy": 0.2
+    },
+    "geographic_political": {
+      "graphrag_accuracy": 0.2,
+      "flatrag_accuracy": 0.4
+    },
+    "cross_domain": {
+      "graphrag_accuracy": 0.1,
+      "flatrag_accuracy": 0.3
     }
   }
 }
