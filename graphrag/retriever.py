@@ -73,7 +73,12 @@ class GraphRAGRetriever:
                 n_name = record["n_name"] or "Unknown"
                 n_type = record["n_type"] or "Entity"
                 n_desc = record["n_desc"] or ""
-                connections = record["connections"][:3]
+                
+                # Rank connections by word overlap with query
+                connections = record["connections"]
+                query_words = set(query.lower().split())
+                connections.sort(key=lambda c: len(set(c.lower().split()) & query_words), reverse=True)
+                connections = connections[:3]
                 
                 nodes_traversed_set.add(n_id)
                 
