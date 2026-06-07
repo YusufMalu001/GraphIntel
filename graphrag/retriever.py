@@ -57,13 +57,24 @@ class GraphRAGRetriever:
             query_cypher = f"""
             MATCH (seed)
             WHERE id(seed) IN $seed_ids
-            MATCH (seed)-[*0..{max_hops}]-(neighbor)
-            WITH DISTINCT neighbor
-            MATCH (neighbor)-[r]-(conn)
+            MATCH (seed)-[*0..{max_hops}]-(n)
+            WITH DISTINCT n AS all_neighbors
+            WITH collect(all_neighbors) AS all_n_list
+            
+            UNWIND all_n_list AS neighbor
+            OPTIONAL MATCH (neighbor)-[r]-(conn)
+            WITH neighbor, conn, type(r) AS rel_type, startNode(r) = neighbor AS is_start, all_n_list
+            WITH neighbor, conn, rel_type, is_start, conn IN all_n_list AS in_subgraph
+            ORDER BY in_subgraph DESC
             WITH neighbor, 
-                 CASE WHEN startNode(r) = neighbor THEN '-> ' + type(r) + ' -> ' + coalesce(conn.name, '')
-                 ELSE '<- ' + type(r) + ' <- ' + coalesce(conn.name, '') END AS conn_str
-            WITH neighbor, collect(conn_str) AS connections
+                 CASE 
+                    WHEN conn IS NULL THEN null
+                    WHEN is_start THEN '-> ' + rel_type + ' -> ' + coalesce(conn.name, '')
+                    ELSE '<- ' + rel_type + ' <- ' + coalesce(conn.name, '') 
+                 END AS conn_str
+            // Filter out nulls from collect
+            WITH neighbor, collect(conn_str) AS all_conns
+            WITH neighbor, [c IN all_conns WHERE c IS NOT NULL] AS connections
             RETURN id(neighbor) AS n_id, neighbor.name AS n_name, labels(neighbor)[0] AS n_type, neighbor.description AS n_desc, connections
             """
             
@@ -76,21 +87,16 @@ class GraphRAGRetriever:
                 n_type = record["n_type"] or "Entity"
                 n_desc = record["n_desc"] or ""
                 
-                # Rank connections by word overlap with query
-                connections = record["connections"]
-                query_words = set(query.lower().split())
-                connections.sort(key=lambda c: len(set(c.lower().split()) & query_words), reverse=True)
-                connections = connections[:3]
+                # We already sorted in Cypher to prioritize subgraph connections
+                connections = record["connections"][:3]
                 
                 nodes_traversed_set.add(n_id)
                 
-                if str(n_id) in self.embeddings_cache:
-                    n_emb = self.embeddings_cache[str(n_id)]
-                else:
-                    text_to_embed = f"{n_name} {n_desc}".strip()
-                    if not text_to_embed:
-                        continue
-                    n_emb = self.embedder.embed_query(text_to_embed)
+                # Embed neighbor node description (including connections for better relevance)
+                text_to_embed = f"{n_name} {n_type} {n_desc} {' '.join(connections)}".strip()
+                if not text_to_embed:
+                    continue
+                n_emb = self.embedder.embed_query(text_to_embed)
                     
                 sim = float(cosine_similarity([query_embedding], [n_emb])[0][0])
                 if sim > 0.25:

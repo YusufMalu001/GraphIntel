@@ -8,7 +8,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 1200,
+      "latency_ms": 736,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -17,7 +17,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 80,
+      "latency_ms": 56,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -27,11 +27,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "Tywin Lannister",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 130,
+      "latency_ms": 236,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -40,7 +40,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 95,
+      "latency_ms": 39,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -50,11 +50,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
+      "answer": "Catelyn Stark",
+      "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 299,
+      "latency_ms": 401,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -63,7 +63,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 33,
+      "latency_ms": 40,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -73,11 +73,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Eddard Stark",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 102,
+      "latency_ms": 204,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -86,7 +86,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 32,
+      "latency_ms": 36,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -99,8 +99,8 @@
       "answer": "UNKNOWN",
       "exact_match": false,
       "semantic_match": false,
-      "faithfulness": true,
-      "latency_ms": 202,
+      "faithfulness": false,
+      "latency_ms": 212,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -109,7 +109,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 77,
+      "latency_ms": 35,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -123,7 +123,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 134,
+      "latency_ms": 206,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -132,7 +132,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 397,
+      "latency_ms": 37,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -142,11 +142,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Catelyn Stark",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 65,
+      "latency_ms": 211,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -155,7 +155,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 107,
+      "latency_ms": 36,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -165,11 +165,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "Roose Bolton",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 202,
+      "latency_ms": 188,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -178,7 +178,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 98,
+      "latency_ms": 33,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -188,11 +188,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Elbert Arryn",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 122,
+      "latency_ms": 185,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -201,7 +201,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 34,
+      "latency_ms": 37,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -211,11 +211,11 @@
     "category": "family_lineage",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "Olenna Tyrell",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 78,
+      "latency_ms": 182,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -224,7 +224,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 40,
+      "latency_ms": 42,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -234,11 +234,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "House Stark",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 89,
+      "latency_ms": 242,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -247,7 +247,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 68,
+      "latency_ms": 34,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -257,20 +257,20 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "The Night's Watch",
+      "answer": "The Seven Kingdoms.",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 66,
+      "latency_ms": 168,
       "nodes_traversed": 5,
       "hops_used": 2
     },
     "flatrag": {
-      "answer": "House Stark",
+      "answer": "House Stark.",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 51,
+      "latency_ms": 30,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -280,20 +280,20 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
+      "answer": "House Targaryen",
+      "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 90,
+      "latency_ms": 190,
       "nodes_traversed": 5,
       "hops_used": 2
     },
     "flatrag": {
-      "answer": "House Tarth.",
-      "exact_match": true,
+      "answer": "UNKNOWN",
+      "exact_match": false,
       "semantic_match": false,
-      "faithfulness": false,
-      "latency_ms": 42,
+      "faithfulness": true,
+      "latency_ms": 28,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -303,11 +303,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "House Stark",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 76,
+      "latency_ms": 194,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -316,7 +316,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 75,
+      "latency_ms": 58,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -330,7 +330,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 66,
+      "latency_ms": 205,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -339,7 +339,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 56,
+      "latency_ms": 28,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -349,11 +349,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "House Baratheon",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 92,
+      "latency_ms": 157,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -362,7 +362,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 69,
+      "latency_ms": 43,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -372,11 +372,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "House Lannister",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 88,
+      "latency_ms": 278,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -385,7 +385,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 52,
+      "latency_ms": 49,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -395,11 +395,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "House Lannister",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 358,
+      "latency_ms": 217,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -408,7 +408,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 51,
+      "latency_ms": 354,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -418,11 +418,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "Grey Worm",
-      "exact_match": true,
-      "semantic_match": true,
+      "answer": "UNKNOWN",
+      "exact_match": false,
+      "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 107,
+      "latency_ms": 422,
       "nodes_traversed": 8,
       "hops_used": 2
     },
@@ -431,7 +431,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 60,
+      "latency_ms": 64,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -441,11 +441,11 @@
     "category": "political_allegiance",
     "hops_required": 2,
     "graphrag": {
-      "answer": "Euron Greyjoy",
+      "answer": "Victarion Greyjoy",
       "exact_match": true,
-      "semantic_match": true,
+      "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 206,
+      "latency_ms": 1378,
       "nodes_traversed": 34,
       "hops_used": 2
     },
@@ -454,7 +454,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 66,
+      "latency_ms": 814,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -464,11 +464,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
+      "answer": "Battle of the Fist.",
+      "exact_match": true,
       "semantic_match": false,
-      "faithfulness": true,
-      "latency_ms": 104,
+      "faithfulness": false,
+      "latency_ms": 213,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -477,7 +477,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 1308,
+      "latency_ms": 26,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -487,11 +487,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "Arya Stark",
+      "answer": "Arya Stark.",
       "exact_match": true,
       "semantic_match": true,
-      "faithfulness": true,
-      "latency_ms": 339,
+      "faithfulness": false,
+      "latency_ms": 1337,
       "nodes_traversed": 34,
       "hops_used": 2
     },
@@ -500,7 +500,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 48,
+      "latency_ms": 32,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -510,11 +510,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Execution of Eddard Stark",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 76,
+      "latency_ms": 306,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -523,7 +523,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 37,
+      "latency_ms": 30,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -533,20 +533,20 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "Jon Snow",
+      "answer": "Jon Snow's forces",
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 67,
+      "latency_ms": 245,
       "nodes_traversed": 5,
       "hops_used": 2
     },
     "flatrag": {
-      "answer": "Jon Snow's forces.",
+      "answer": "Jon Snow's army.",
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 37,
+      "latency_ms": 30,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -556,11 +556,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Daenerys Targaryen",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 63,
+      "latency_ms": 572,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -569,7 +569,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 37,
+      "latency_ms": 38,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -579,11 +579,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Petyr Baelish",
       "exact_match": false,
       "semantic_match": false,
-      "faithfulness": true,
-      "latency_ms": 66,
+      "faithfulness": false,
+      "latency_ms": 198,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -592,7 +592,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 32,
+      "latency_ms": 67,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -606,16 +606,16 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 104,
+      "latency_ms": 187,
       "nodes_traversed": 5,
       "hops_used": 2
     },
     "flatrag": {
-      "answer": "The Riverlands.",
-      "exact_match": true,
+      "answer": "UNKNOWN",
+      "exact_match": false,
       "semantic_match": false,
-      "faithfulness": false,
-      "latency_ms": 36,
+      "faithfulness": true,
+      "latency_ms": 48,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -625,11 +625,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
-      "semantic_match": false,
+      "answer": "Tyrion Lannister",
+      "exact_match": true,
+      "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 58,
+      "latency_ms": 208,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -638,7 +638,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 22,
+      "latency_ms": 108,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -648,11 +648,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
+      "answer": "The Mountain killed Viper.",
+      "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 59,
+      "latency_ms": 288,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -661,7 +661,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 28,
+      "latency_ms": 42,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -671,11 +671,11 @@
     "category": "conflict_causality",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
-      "exact_match": false,
+      "answer": "Melisandre",
+      "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 58,
+      "latency_ms": 232,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -684,7 +684,7 @@
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 115,
+      "latency_ms": 78,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -694,11 +694,11 @@
     "category": "geographic_political",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "The Warden of the North",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 91,
+      "latency_ms": 197,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -707,7 +707,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 27,
+      "latency_ms": 30,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -721,7 +721,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 61,
+      "latency_ms": 202,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -730,7 +730,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 36,
+      "latency_ms": 26,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -740,11 +740,11 @@
     "category": "geographic_political",
     "hops_required": 2,
     "graphrag": {
-      "answer": "Stannis Baratheon",
-      "exact_match": true,
-      "semantic_match": true,
+      "answer": "House Greyjoy",
+      "exact_match": false,
+      "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 67,
+      "latency_ms": 201,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -753,7 +753,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 33,
+      "latency_ms": 34,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -767,7 +767,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 76,
+      "latency_ms": 511,
       "nodes_traversed": 12,
       "hops_used": 2
     },
@@ -776,7 +776,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 66,
+      "latency_ms": 23,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -786,11 +786,11 @@
     "category": "geographic_political",
     "hops_required": 2,
     "graphrag": {
-      "answer": "The Seven Kingdoms",
-      "exact_match": false,
-      "semantic_match": false,
-      "faithfulness": false,
-      "latency_ms": 75,
+      "answer": "Dorne region",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 323,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -799,7 +799,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 60,
+      "latency_ms": 380,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -813,7 +813,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 75,
+      "latency_ms": 183,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -822,7 +822,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 37,
+      "latency_ms": 41,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -832,11 +832,11 @@
     "category": "geographic_political",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "King's Landing",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 63,
+      "latency_ms": 264,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -845,7 +845,7 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 56,
+      "latency_ms": 33,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -859,7 +859,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 72,
+      "latency_ms": 1192,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -868,7 +868,7 @@
       "exact_match": true,
       "semantic_match": true,
       "faithfulness": true,
-      "latency_ms": 44,
+      "latency_ms": 27,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -878,20 +878,20 @@
     "category": "geographic_political",
     "hops_required": 2,
     "graphrag": {
-      "answer": "Lhazar",
-      "exact_match": false,
-      "semantic_match": false,
-      "faithfulness": true,
-      "latency_ms": 114,
+      "answer": "The Dothraki Sea",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": false,
+      "latency_ms": 660,
       "nodes_traversed": 18,
       "hops_used": 2
     },
     "flatrag": {
-      "answer": "The Dragonpit.",
+      "answer": "The Dragon Pit.",
       "exact_match": true,
       "semantic_match": false,
       "faithfulness": false,
-      "latency_ms": 114,
+      "latency_ms": 33,
       "nodes_traversed": 5,
       "hops_used": 0
     }
@@ -901,11 +901,11 @@
     "category": "geographic_political",
     "hops_required": 2,
     "graphrag": {
-      "answer": "UNKNOWN",
+      "answer": "Castle Black",
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 68,
+      "latency_ms": 183,
       "nodes_traversed": 5,
       "hops_used": 2
     },
@@ -914,7 +914,237 @@
       "exact_match": false,
       "semantic_match": false,
       "faithfulness": true,
-      "latency_ms": 22,
+      "latency_ms": 41,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_041",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "The Old Gods.",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 199,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "The Old Gods.",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 28,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_042",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "Jon Snow",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 228,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Jon Snow.",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 32,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_043",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "House Frey",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 188,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "House Frey.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 32,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_044",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "UNKNOWN",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 1110,
+      "nodes_traversed": 33,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Wun Wun's blacksmith.",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 36,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_045",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "House Lannister",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 210,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "House Westerling",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 47,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_046",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "Jon Snow",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 194,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Jon Snow",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 39,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_047",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "House Staunton",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 185,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "House Staunton.",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 35,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_048",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "UNKNOWN",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 182,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "UNKNOWN",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 41,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_049",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "Braavos",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 1791,
+      "nodes_traversed": 12,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Braavos.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithfulness": true,
+      "latency_ms": 26,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_050",
+    "category": "cross_domain",
+    "hops_required": 3,
+    "graphrag": {
+      "answer": "Green sickness",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 177,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Green sickness.",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 32,
       "nodes_traversed": 5,
       "hops_used": 0
     }
