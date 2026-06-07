@@ -9,15 +9,10 @@ from graphrag.embedder import GraphEmbedder
 from graphrag.retriever import GraphRAGRetriever
 from graphrag.flat_retriever import FlatRAGRetriever
 from graphrag.community_context import CommunityContextBuilder
-from evaluation.benchmark import call_hf_api, HF_TOKEN
-
+from evaluation.benchmark import generate_answer
 logger = logging.getLogger(__name__)
 
 def run_ablation():
-    if not HF_TOKEN:
-        logger.error("HF_TOKEN not set")
-        return
-        
     neo4j_uri = os.getenv("NEO4J_URI", "neo4j+s://xxxx.databases.neo4j.io")
     neo4j_user = os.getenv("NEO4J_USER", "neo4j")
     neo4j_password = os.getenv("NEO4J_PASSWORD", "neo4j123")
@@ -46,19 +41,16 @@ def run_ablation():
         
         # Condition A: Flat RAG
         flat_res = flat_retriever.retrieve(question_text)
-        flat_prompt = f"Context: {flat_res.graph_context_str}\nQuestion: {question_text}\nAnswer concisely:"
-        flat_ans = call_hf_api(flat_prompt)
+        flat_ans = generate_answer(flat_res.graph_context_str, question_text)
         
         # Condition B: Graph traversal only (no community)
         graph_res = graph_retriever.retrieve(question_text)
-        graph_prompt = f"Context: {graph_res.graph_context_str}\nQuestion: {question_text}\nAnswer concisely:"
-        graph_ans = call_hf_api(graph_prompt)
+        graph_ans = generate_answer(graph_res.graph_context_str, question_text)
         
         # Condition C: Graph + Community
         graph_comm_res = graph_retriever.retrieve(question_text)
         graph_comm_res = community_builder.augment_retrieval(graph_comm_res)
-        graph_comm_prompt = f"Context: {graph_comm_res.graph_context_str}\nQuestion: {question_text}\nAnswer concisely:"
-        graph_comm_ans = call_hf_api(graph_comm_prompt)
+        graph_comm_ans = generate_answer(graph_comm_res.graph_context_str, question_text)
         
         # Evaluate
         def exact_match(ans, gt):

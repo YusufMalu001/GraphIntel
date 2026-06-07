@@ -31,6 +31,8 @@ GraphRAG vs Flat RAG benchmark on 50 multi-hop QA questions over 2,192-node Neo4
 ## 4. Dataset: GoT Knowledge Graph
 - **Node Types**: 12 (Person, House, Location, Event, etc.)
 - **Relationship Types**: 50+ (Father, Mother, Allegiance, Conflict, etc.)
+- **Total Nodes**: 2,192
+- **Total Relationships**: 13,572
 - **Source**: gameofthrones.fandom.com wiki
 
 ## 5. Evaluation Design
@@ -53,9 +55,21 @@ GraphRAG vs Flat RAG benchmark on 50 multi-hop QA questions over 2,192-node Neo4
 - GraphRAG advantage is most pronounced on 2-hop reasoning queries (+2.5%), consistent with theoretical expectation that graph traversal aids multi-step inference
 - GraphRAG reduces hallucination rate by 13% relative (30% → 26%), indicating graph-structured context produces more faithful answers
 - Three critical production bugs were identified and resolved during evaluation: INNER MATCH node dropout, context truncation severing reasoning chains, and similarity threshold over-filtering of isolated entities
-- Latency overhead of GraphRAG (+26ms) is acceptable for accuracy-critical surveillance applications
+- Latency overhead of GraphRAG (+26ms) is acceptable for accuracy-critical retrieval applications
 
-## 8. How to Run
+## 8. Pipeline Debugging & Root Cause Analysis
+
+During evaluation, GraphRAG initially scored 10% accuracy vs Flat RAG's 54% — a 44-point deficit. Systematic debugging identified three root causes:
+
+| Bug | Root Cause | Fix |
+|---|---|---|
+| INNER MATCH Dropout | Cypher MATCH dropped isolated nodes with zero edges, blinding LLM to relevant entities | Changed to OPTIONAL MATCH to preserve isolated but semantically relevant nodes |
+| Context Truncation | Arbitrary `connections[:3]` slicing severed multi-hop reasoning chains | Added `ORDER BY in_subgraph DESC` to prioritize bridge connections |
+| Similarity Over-filtering | `sim > 0.25` threshold excluded proper nouns with naturally low embedding similarity to long queries | Embedded full neighborhood string instead of entity name alone |
+
+**Result**: GraphRAG accuracy recovered from 10% → 56% after all three fixes were applied.
+
+## 9. How to Run
 
 1. **Install Dependencies**:
    ```bash
@@ -72,9 +86,9 @@ GraphRAG vs Flat RAG benchmark on 50 multi-hop QA questions over 2,192-node Neo4
    python scripts/run_benchmark.py
    ```
 
-## 9. Ablation Study Results
+## 10. Ablation Study Results
 *(To be populated after running `scripts/run_ablation.py`)*
 
-## 10. Future Work
+## 11. Future Work
 - Explore more sophisticated LLM-based query decomposition.
 - Evaluate against advanced graph query generation (Text-to-Cypher).
