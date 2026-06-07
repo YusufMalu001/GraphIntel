@@ -1,0 +1,696 @@
+[
+  {
+    "id": "MH_001",
+    "question": "Who is the father of the person who killed Joffrey Baratheon?",
+    "answer": "Tywin Lannister",
+    "hops_required": 2,
+    "entities_involved": [
+      "Joffrey Baratheon",
+      "Tyrion Lannister",
+      "Tywin Lannister"
+    ],
+    "relationships_required": [
+      "killed",
+      "father"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_002",
+    "question": "Who is the maternal grandfather of Joffrey Baratheon?",
+    "answer": "Tywin Lannister",
+    "hops_required": 2,
+    "entities_involved": [
+      "Joffrey Baratheon",
+      "Cersei Lannister",
+      "Tywin Lannister"
+    ],
+    "relationships_required": [
+      "mother",
+      "father"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_003",
+    "question": "Who is the mother of Jon Snow?",
+    "answer": "Lyanna Stark",
+    "hops_required": 2,
+    "entities_involved": [
+      "Jon Snow",
+      "Lyanna Stark"
+    ],
+    "relationships_required": [
+      "mother"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_004",
+    "question": "Who is the father of Arya Stark's mother?",
+    "answer": "Hoster Tully",
+    "hops_required": 2,
+    "entities_involved": [
+      "Arya Stark",
+      "Catelyn Stark",
+      "Hoster Tully"
+    ],
+    "relationships_required": [
+      "mother",
+      "father"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_005",
+    "question": "Who is the brother of Daenerys Targaryen?",
+    "answer": "Viserys Targaryen",
+    "hops_required": 2,
+    "entities_involved": [
+      "Daenerys Targaryen",
+      "Viserys Targaryen"
+    ],
+    "relationships_required": [
+      "brother"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_006",
+    "question": "Who is the sister of the Kingslayer?",
+    "answer": "Cersei Lannister",
+    "hops_required": 2,
+    "entities_involved": [
+      "Jaime Lannister",
+      "Cersei Lannister"
+    ],
+    "relationships_required": [
+      "sister",
+      "alias"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_007",
+    "question": "Who is the son of Ned Stark's sister?",
+    "answer": "Jon Snow",
+    "hops_required": 2,
+    "entities_involved": [
+      "Ned Stark",
+      "Lyanna Stark",
+      "Jon Snow"
+    ],
+    "relationships_required": [
+      "sister",
+      "son"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_008",
+    "question": "Who is the father of the Bastard of Bolton?",
+    "answer": "Roose Bolton",
+    "hops_required": 2,
+    "entities_involved": [
+      "Ramsay Bolton",
+      "Roose Bolton"
+    ],
+    "relationships_required": [
+      "father",
+      "alias"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_009",
+    "question": "Who is the uncle of Robin Arryn?",
+    "answer": "Edmure Tully",
+    "hops_required": 2,
+    "entities_involved": [
+      "Robin Arryn",
+      "Lysa Arryn",
+      "Edmure Tully"
+    ],
+    "relationships_required": [
+      "mother",
+      "brother"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_010",
+    "question": "Who is the grandmother of Margaery Tyrell?",
+    "answer": "Olenna Tyrell",
+    "hops_required": 2,
+    "entities_involved": [
+      "Margaery Tyrell",
+      "Mace Tyrell",
+      "Olenna Tyrell"
+    ],
+    "relationships_required": [
+      "father",
+      "mother"
+    ],
+    "difficulty": "medium",
+    "category": "family_lineage"
+  },
+  {
+    "id": "MH_011",
+    "question": "Who does House Karstark swear allegiance to?",
+    "answer": "House Stark",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_012",
+    "question": "Which house does the commander of the Night's Watch owe allegiance to?",
+    "answer": "None / Neutral",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_013",
+    "question": "Who is the liege lord of House Tarly?",
+    "answer": "House Tyrell",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_014",
+    "question": "Which house did House Frey betray at the Red Wedding?",
+    "answer": "House Stark",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_015",
+    "question": "Who did the Umbers betray House Stark for?",
+    "answer": "House Bolton",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_016",
+    "question": "Which house rules the Stormlands?",
+    "answer": "House Baratheon",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_017",
+    "question": "Who did House Tyrell ally with after Renly's death?",
+    "answer": "House Lannister",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_018",
+    "question": "Which house controls the Westerlands?",
+    "answer": "House Lannister",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_019",
+    "question": "Who is the leader of the Unsullied?",
+    "answer": "Grey Worm",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_020",
+    "question": "Who did the Ironborn swear fealty to after the Kingsmoot?",
+    "answer": "Euron Greyjoy",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "allegiance",
+      "rules"
+    ],
+    "difficulty": "medium",
+    "category": "political_allegiance"
+  },
+  {
+    "id": "MH_021",
+    "question": "What battle directly preceded the Red Wedding?",
+    "answer": "Battle of the Fords / War of the Five Kings",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_022",
+    "question": "Who killed the Night King during the Battle of Winterfell?",
+    "answer": "Arya Stark",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_023",
+    "question": "What event led to the execution of Ned Stark?",
+    "answer": "Robert Baratheon's death",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_024",
+    "question": "Who won the Battle of the Bastards?",
+    "answer": "House Stark / Jon Snow",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_025",
+    "question": "What caused the destruction of the Great Sept of Baelor?",
+    "answer": "Wildfire / Cersei Lannister",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_026",
+    "question": "Who poisoned Joffrey Baratheon?",
+    "answer": "Olenna Tyrell",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_027",
+    "question": "What battle resulted in the capture of Jaime Lannister?",
+    "answer": "Battle of the Whispering Wood",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_028",
+    "question": "Who killed Tywin Lannister?",
+    "answer": "Tyrion Lannister",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_029",
+    "question": "What was the outcome of the Viper vs the Mountain trial by combat?",
+    "answer": "The Mountain won / Oberyn Martell died",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_030",
+    "question": "Who burned Shireen Baratheon?",
+    "answer": "Melisandre / Stannis Baratheon",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "killed",
+      "participated_in"
+    ],
+    "difficulty": "medium",
+    "category": "conflict_causality"
+  },
+  {
+    "id": "MH_031",
+    "question": "Who rules the castle located in the home of House Stark?",
+    "answer": "House Stark",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_032",
+    "question": "What is the seat of House Lannister?",
+    "answer": "Casterly Rock",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_033",
+    "question": "Who controls Dragonstone at the beginning of the series?",
+    "answer": "Stannis Baratheon",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_034",
+    "question": "Where is the Iron Throne located?",
+    "answer": "King's Landing",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_035",
+    "question": "What region does House Martell rule?",
+    "answer": "Dorne",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_036",
+    "question": "What is the ancestral home of House Arryn?",
+    "answer": "The Eyrie",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_037",
+    "question": "Where is the Citadel located?",
+    "answer": "Oldtown",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_038",
+    "question": "What region does House Tyrell rule?",
+    "answer": "The Reach",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_039",
+    "question": "Where did Daenerys hatch her dragons?",
+    "answer": "The Dothraki Sea / Essos",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_040",
+    "question": "What castle guards the passage to the North?",
+    "answer": "Moat Cailin",
+    "hops_required": 2,
+    "entities_involved": [],
+    "relationships_required": [
+      "rules",
+      "located_in"
+    ],
+    "difficulty": "medium",
+    "category": "geographic_political"
+  },
+  {
+    "id": "MH_041",
+    "question": "What religion is practiced by the founder of the house that won the Battle of the Bastards?",
+    "answer": "Old Gods of the Forest",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_042",
+    "question": "Who is the leader of the group that defends the wall located in the North?",
+    "answer": "Jon Snow / Commander of the Night's Watch",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_043",
+    "question": "Which house rules the region where the Red Wedding took place?",
+    "answer": "House Frey / House Tully",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_044",
+    "question": "Who forged the sword Ice owned by the lord of Winterfell?",
+    "answer": "Valyrian Freehold (Valyrian Steel)",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_045",
+    "question": "What is the sigil of the house that rules the Westerlands?",
+    "answer": "A golden lion",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_046",
+    "question": "Which character has a direwolf named Ghost and belongs to the Night's Watch?",
+    "answer": "Jon Snow",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_047",
+    "question": "What house rules the region where the Citadel is located?",
+    "answer": "House Tyrell",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_048",
+    "question": "Who is the father of the person who burned the Great Sept of Baelor?",
+    "answer": "Tywin Lannister",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_049",
+    "question": "Which Free City is home to the Iron Bank?",
+    "answer": "Braavos",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  },
+  {
+    "id": "MH_050",
+    "question": "What disease did the daughter of the lord of Dragonstone have?",
+    "answer": "Greyscale",
+    "hops_required": 3,
+    "entities_involved": [],
+    "relationships_required": [
+      "practices",
+      "rules",
+      "participated"
+    ],
+    "difficulty": "hard",
+    "category": "cross_domain"
+  }
+]
