@@ -87,7 +87,11 @@ During evaluation, GraphRAG initially scored 10% accuracy vs Flat RAG's 54% — 
    ```
 
 ## 10. Ablation Study Results
-*(To be populated after running `scripts/run_ablation.py`)*
+| Configuration | Accuracy | Impact |
+|---|---|---|
+| Flat RAG (Baseline) | 30.0% | - |
+| Graph Traversal Only | 30.0% | +0.0% |
+| Graph + Community Context | 40.0% | +10.0% |
 
 ## 11. Future Work
 - Explore more sophisticated LLM-based query decomposition.
