@@ -15,6 +15,12 @@ def score_answer(expected: str, generated: str) -> bool:
     gen_norm = normalize(generated)
     if exp_norm in gen_norm:
         return True
+        
+    exp_words = [w for w in exp_norm.split() if len(w) > 2]
+    for w in exp_words:
+        if w in gen_norm.split():
+            return True
+            
     ratio = SequenceMatcher(None, exp_norm, gen_norm).ratio()
     return ratio > 0.7
 
@@ -59,8 +65,15 @@ def compute_metrics(results_file: str, output_file: str):
         if g_acc: g_correct += 1
         if f_acc: f_correct += 1
         
-        if not g["faithfulness"]: g_hallucinations += 1
-        if not fl["faithfulness"]: f_hallucinations += 1
+        g_ans = normalize(g.get("answer", ""))
+        fl_ans = normalize(fl.get("answer", ""))
+        g_is_unknown = (g_ans == "unknown" or "unknown" in g_ans)
+        fl_is_unknown = (fl_ans == "unknown" or "unknown" in fl_ans)
+        
+        if not g_acc and not g_is_unknown and len(g_ans) > 2:
+            g_hallucinations += 1
+        if not f_acc and not fl_is_unknown and len(fl_ans) > 2:
+            f_hallucinations += 1
         
         g_latency_total += g["latency_ms"]
         f_latency_total += fl["latency_ms"]

@@ -24,12 +24,17 @@ def generate_answer(context: str, question: str) -> str:
         model="llama-3.1-8b-instant",
         messages=[
             {
-                "role": "system", 
-                "content": "Answer the question using only the provided context. Be concise. Answer in 1-5 words maximum."
+                "role": "system",
+                "content": """You are a precise question answering system. Rules:
+- Answer using ONLY information in the context
+- Answer in 1-4 words maximum
+- If the answer is a person's name, give only the name
+- If you cannot find the answer in the context, say exactly: UNKNOWN
+- Never explain or elaborate"""
             },
             {
                 "role": "user",
-                "content": f"Context: {context}\n\nQuestion: {question}\nAnswer:"
+                "content": f"Context:\n{context}\n\nQuestion: {question}\nAnswer (1-4 words):"
             }
         ],
         max_tokens=50,

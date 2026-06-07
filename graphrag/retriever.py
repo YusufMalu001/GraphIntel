@@ -42,50 +42,77 @@ class GraphRAGRetriever:
             return RetrievalResult([], "No data available.", 0, 0, 0)
             
         seed_nodes = []
-        context_triplets = set()
         nodes_traversed_set = set(seed_ids)
+        
+        # 1. Embed query for similarity comparison
+        query_embedding = self.embedder.embed_query(query)
         
         with self.driver.session() as session:
             # Get seed node details
             seed_res = session.run("MATCH (n) WHERE id(n) IN $seed_ids RETURN id(n) AS id, n.name AS name", seed_ids=seed_ids)
-            seed_names = {}
             for record in seed_res:
                 seed_nodes.append({"id": record["id"], "name": record["name"]})
-                seed_names[record["id"]] = record["name"]
                 
-            # Traverse graph up to max_hops
-            # We collect all distinct relationships in the paths
+            # Traverse graph and get distinct neighbors
             query_cypher = f"""
             MATCH (seed)
             WHERE id(seed) IN $seed_ids
-            MATCH p=(seed)-[*1..{max_hops}]-(neighbor)
-            WITH seed, p LIMIT 200
-            UNWIND relationships(p) AS r
-            RETURN DISTINCT id(seed) AS seed_id, seed.name AS seed_name,
-                   startNode(r).name AS source_name, type(r) AS relation, endNode(r).name AS target_name,
-                   id(startNode(r)) AS source_id, id(endNode(r)) AS target_id
+            MATCH (seed)-[*0..{max_hops}]-(neighbor)
+            WITH DISTINCT neighbor
+            MATCH (neighbor)-[r]-(conn)
+            WITH neighbor, type(r) + ' ' + coalesce(conn.name, '') AS conn_str
+            WITH neighbor, collect(conn_str) AS connections
+            RETURN id(neighbor) AS n_id, neighbor.name AS n_name, labels(neighbor)[0] AS n_type, neighbor.description AS n_desc, connections
             """
             
             result = session.run(query_cypher, seed_ids=seed_ids)
             
+            neighbor_data = []
             for record in result:
-                s_name = record["seed_name"] or "Unknown"
-                src = record["source_name"] or "Unknown"
-                rel = record["relation"]
-                tgt = record["target_name"] or "Unknown"
+                n_id = record["n_id"]
+                n_name = record["n_name"] or "Unknown"
+                n_type = record["n_type"] or "Entity"
+                n_desc = record["n_desc"] or ""
+                connections = record["connections"][:3]
                 
-                nodes_traversed_set.add(record["source_id"])
-                nodes_traversed_set.add(record["target_id"])
+                nodes_traversed_set.add(n_id)
                 
-                # Build structured context: "Seed: {node}. Related: {neighbor} via {relationship}."
-                # It's cleaner to express as triples associated with the seed.
-                triplet_str = f"Seed: {s_name}. Related: {src} -> {rel} -> {tgt}."
-                context_triplets.add(triplet_str)
-                
-        # Deduplicate and rank (by simple presence for now, as it's a set)
-        graph_context_str = "\n".join(sorted(list(context_triplets)))
-        if not graph_context_str:
-            graph_context_str = "No graph relationships found for seeds."
+                if str(n_id) in self.embeddings_cache:
+                    n_emb = self.embeddings_cache[str(n_id)]
+                else:
+                    text_to_embed = f"{n_name} {n_desc}".strip()
+                    if not text_to_embed:
+                        continue
+                    n_emb = self.embedder.embed_query(text_to_embed)
+                    
+                sim = float(cosine_similarity([query_embedding], [n_emb])[0][0])
+                if sim > 0.25:
+                    neighbor_data.append({
+                        "sim": sim,
+                        "name": n_name,
+                        "type": n_type,
+                        "desc": n_desc,
+                        "connections": connections
+                    })
+                    
+        neighbor_data.sort(key=lambda x: x["sim"], reverse=True)
+        top_neighbors = neighbor_data[:8]
+        
+        if not top_neighbors:
+            graph_context_str = "No relevant graph relationships found."
+        else:
+            context_lines = ["Key entities related to your query:"]
+            for i, n in enumerate(top_neighbors, 1):
+                conn_str = ", ".join(n["connections"])
+                context_lines.append(f"{i}. {n['name']} ({n['type']}): {n['desc']}")
+                if conn_str:
+                    context_lines.append(f"   Connected to: {conn_str}")
+                    
+            graph_context_str = "\n".join(context_lines)
+            
+            words = graph_context_str.split()
+            if len(words) > 600:
+                graph_context_str = " ".join(words[:600]) + "..."
             
         latency_ms = int((time.time() - start_time) * 1000)
         
@@ -131,9 +158,10 @@ class GraphRAGRetriever:
                 if seed not in all_seed_nodes:
                     all_seed_nodes.append(seed)
                     
-            if res.graph_context_str != "No data available." and res.graph_context_str != "No graph relationships found for seeds.":
+            if res.graph_context_str != "No data available." and res.graph_context_str != "No relevant graph relationships found.":
                 for line in res.graph_context_str.split("\n"):
-                    all_contexts.add(line)
+                    if not line.startswith("Key entities"):
+                        all_contexts.add(line)
                     
             # simulate traversing nodes
             # We don't have the exact IDs traversed here without changing retrieve return signature,
