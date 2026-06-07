@@ -1,0 +1,117 @@
+[
+  {
+    "id": "MH_001",
+    "category": "family_lineage",
+    "hops_required": 2,
+    "graphrag": {
+      "answer": "api_timeout",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 101,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "api_timeout",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 259,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_002",
+    "category": "family_lineage",
+    "hops_required": 2,
+    "graphrag": {
+      "answer": "api_timeout",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 184,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "api_timeout",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 161,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_003",
+    "category": "family_lineage",
+    "hops_required": 2,
+    "graphrag": {
+      "answer": "api_timeout",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 154,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "api_timeout",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": false,
+      "latency_ms": 186,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_004",
+    "category": "family_lineage",
+    "hops_required": 2,
+    "graphrag": {
+      "answer": "Using only this context, answer the question.\nContext: No graph relationships found for seeds.\nQuestion: Who is the father of Arya Stark's mother?\nAnswer concisely:",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 142,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Using only this context, answer the question.\nContext: Person: Arya Stark.\nPerson: Catelyn Stark.\nPerson: Sansa Stark.\nPerson: Son of Robert Baratheon and Cersei Lannister.\nPerson: Theon Stark.\nQuestion: Who is the father of Arya Stark's mother?\nAnswer concisely:",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 34,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  },
+  {
+    "id": "MH_005",
+    "category": "family_lineage",
+    "hops_required": 2,
+    "graphrag": {
+      "answer": "Using only this context, answer the question.\nContext: No graph relationships found for seeds.\nQuestion: Who is the brother of Daenerys Targaryen?\nAnswer concisely:",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 42,
+      "nodes_traversed": 5,
+      "hops_used": 2
+    },
+    "flatrag": {
+      "answer": "Using only this context, answer the question.\nContext: Person: Daenerys Targaryen.\nPerson: Daenys Targaryen.\nPerson: Daeron II Targaryen.\nPerson: Daeron Targaryen.\nPerson: Rhaenys Targaryen.\nQuestion: Who is the brother of Daenerys Targaryen?\nAnswer concisely:",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithfulness": true,
+      "latency_ms": 34,
+      "nodes_traversed": 5,
+      "hops_used": 0
+    }
+  }
+]

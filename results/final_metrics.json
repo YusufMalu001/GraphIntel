@@ -1,0 +1,23 @@
+{
+  "overall": {
+    "graphrag_accuracy": 0.0,
+    "flatrag_accuracy": 0.0,
+    "accuracy_delta": 0.0,
+    "graphrag_hallucination_rate": 0.6,
+    "flatrag_hallucination_rate": 0.6,
+    "graphrag_avg_latency_ms": 124.6,
+    "flatrag_avg_latency_ms": 134.8
+  },
+  "by_hop": {
+    "2": {
+      "graphrag_accuracy": 0.0,
+      "flatrag_accuracy": 0.0
+    }
+  },
+  "by_category": {
+    "family_lineage": {
+      "graphrag_accuracy": 0.0,
+      "flatrag_accuracy": 0.0
+    }
+  }
+}
