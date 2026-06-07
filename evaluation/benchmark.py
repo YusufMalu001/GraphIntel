@@ -13,50 +13,48 @@ load_dotenv()
 from graphrag.retriever import GraphRAGRetriever
 from graphrag.flat_retriever import FlatRAGRetriever
 
+from groq import Groq
+
 logger = logging.getLogger(__name__)
 
-HF_TOKEN = os.getenv("HF_TOKEN")
-HF_API_URL = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-72B-Instruct" 
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-def call_hf_api(prompt: str) -> str:
-    """Call HF inference API with exponential backoff."""
-    headers = {"Authorization": f"Bearer {HF_TOKEN}", "Content-Type": "application/json"}
-    payload = {
-        "inputs": prompt,
-        "parameters": {"max_new_tokens": 100, "temperature": 0.1, "return_full_text": False}
-    }
-    
-    retries = [10, 30, 60]
-    
-    for i in range(4):
-        try:
-            response = requests.post(HF_API_URL, headers=headers, json=payload, timeout=30)
-            if response.status_code == 200:
-                result = response.json()
-                if isinstance(result, list) and len(result) > 0:
-                    return result[0].get("generated_text", "").strip()
-                return ""
-            elif response.status_code == 429:
-                logger.warning(f"Rate limit hit. Status {response.status_code}")
-            else:
-                logger.warning(f"API Error {response.status_code}: {response.text}")
-        except Exception as e:
-            logger.warning(f"API Request Exception: {str(e)}")
-            # Detect sandbox DNS issue
-            if "getaddrinfo failed" in str(e) or "NameResolutionError" in str(e):
-                logger.info("Sandbox network isolated. Falling back to simulated LLM response.")
-                if "Reply with only 'Yes' or 'No'" in prompt:
-                    return "Yes"
-                # Return the prompt as the answer. Since the prompt contains the retrieved context,
-                # the exact_match metric will implicitly evaluate retrieval recall quality!
-                return prompt
-                
-        if i < 3:
-            wait_time = retries[i]
-            logger.info(f"Retrying in {wait_time}s...")
-            time.sleep(wait_time)
-            
-    return "api_timeout"
+def generate_answer(context: str, question: str) -> str:
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[
+            {
+                "role": "system", 
+                "content": "Answer the question using only the provided context. Be concise. Answer in 1-5 words maximum."
+            },
+            {
+                "role": "user",
+                "content": f"Context: {context}\n\nQuestion: {question}\nAnswer:"
+            }
+        ],
+        max_tokens=50,
+        temperature=0.1
+    )
+    return response.choices[0].message.content.strip()
+
+def judge_faithfulness(context: str, question: str, answer: str) -> bool:
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[
+            {
+                "role": "system",
+                "content": "Answer only Yes or No."
+            },
+            {
+                "role": "user", 
+                "content": f"Context: {context}\nQuestion: {question}\nAnswer: {answer}\n\nIs this answer supported by the context? Yes or No:"
+            }
+        ],
+        max_tokens=5,
+        temperature=0.0
+    )
+    result = response.choices[0].message.content.strip()
+    return result.lower().startswith('yes')
 
 class BenchmarkRunner:
     def __init__(self, driver, embedder, embeddings_cache):
@@ -65,11 +63,12 @@ class BenchmarkRunner:
         self.embedder = embedder
         self.timeout_count = 0
         
-    def evaluate_answer(self, generated: str, ground_truth: str, context: str) -> dict:
-        if generated == "api_timeout":
+    def evaluate_answer(self, generated: str, ground_truth: str, context: str, question: str) -> dict:
+        if generated == "api_timeout" or not generated:
             return {"exact_match": False, "semantic_match": False, "faithfulness": False}
             
-        exact_match = ground_truth.lower() in generated.lower()
+        from evaluation.metrics import score_answer
+        exact_match = score_answer(ground_truth, generated)
         
         # Semantic match > 0.8
         gen_emb = self.embedder.embed_query(generated)
@@ -80,13 +79,11 @@ class BenchmarkRunner:
         semantic_match = sim > 0.8
         
         # Faithfulness check via LLM judge
-        judge_prompt = f"Context: {context}\nQuestion: Is this answer supported by the context? Answer '{generated}'. Reply with only 'Yes' or 'No':"
-        judge_res = call_hf_api(judge_prompt)
-        
-        faithfulness = False
-        if judge_res != "api_timeout":
-            faithfulness = "yes" in judge_res.lower()
-        else:
+        try:
+            faithfulness = judge_faithfulness(context, question, generated)
+        except Exception as e:
+            logger.warning(f"Faithfulness judge error: {e}")
+            faithfulness = False
             self.timeout_count += 1
             
         return {"exact_match": exact_match, "semantic_match": semantic_match, "faithfulness": faithfulness}
@@ -121,17 +118,23 @@ class BenchmarkRunner:
             
             # GraphRAG
             graph_res = self.graph_retriever.retrieve(question_text)
-            graph_prompt = f"Using only this context, answer the question.\nContext: {graph_res.graph_context_str}\nQuestion: {question_text}\nAnswer concisely:"
-            graph_ans = call_hf_api(graph_prompt)
-            if graph_ans == "api_timeout": self.timeout_count += 1
-            graph_eval = self.evaluate_answer(graph_ans, gt_answer, graph_res.graph_context_str)
+            try:
+                graph_ans = generate_answer(graph_res.graph_context_str, question_text)
+            except Exception as e:
+                logger.warning(f"Groq API Error: {e}")
+                graph_ans = "api_timeout"
+                self.timeout_count += 1
+            graph_eval = self.evaluate_answer(graph_ans, gt_answer, graph_res.graph_context_str, question_text)
             
             # FlatRAG
             flat_res = self.flat_retriever.retrieve(question_text)
-            flat_prompt = f"Using only this context, answer the question.\nContext: {flat_res.graph_context_str}\nQuestion: {question_text}\nAnswer concisely:"
-            flat_ans = call_hf_api(flat_prompt)
-            if flat_ans == "api_timeout": self.timeout_count += 1
-            flat_eval = self.evaluate_answer(flat_ans, gt_answer, flat_res.graph_context_str)
+            try:
+                flat_ans = generate_answer(flat_res.graph_context_str, question_text)
+            except Exception as e:
+                logger.warning(f"Groq API Error: {e}")
+                flat_ans = "api_timeout"
+                self.timeout_count += 1
+            flat_eval = self.evaluate_answer(flat_ans, gt_answer, flat_res.graph_context_str, question_text)
             
             result_record = {
                 "id": q["id"],

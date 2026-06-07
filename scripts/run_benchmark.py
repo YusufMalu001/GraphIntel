@@ -30,7 +30,7 @@ def main():
     
     # Change limit to None for full run. User requested testing 5 first.
     # Set limit=5 for the test run.
-    runner.run("evaluation/questions.json", "results/benchmark_results.json", limit=5)
+    runner.run("evaluation/questions.json", "results/benchmark_results.json", limit=None)
     
     compute_metrics("results/benchmark_results.json", "results/final_metrics.json")
     

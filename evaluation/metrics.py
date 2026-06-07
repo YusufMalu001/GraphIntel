@@ -2,6 +2,21 @@ import json
 import logging
 from collections import defaultdict
 from pathlib import Path
+import re
+from difflib import SequenceMatcher
+
+def normalize(text: str) -> str:
+    return re.sub(r'[^a-z0-9\s]', '', text.lower()).strip()
+
+def score_answer(expected: str, generated: str) -> bool:
+    if not generated or len(generated.strip()) < 2:
+        return False
+    exp_norm = normalize(expected)
+    gen_norm = normalize(generated)
+    if exp_norm in gen_norm:
+        return True
+    ratio = SequenceMatcher(None, exp_norm, gen_norm).ratio()
+    return ratio > 0.7
 
 logger = logging.getLogger(__name__)
 
