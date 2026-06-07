@@ -60,7 +60,9 @@ class GraphRAGRetriever:
             MATCH (seed)-[*0..{max_hops}]-(neighbor)
             WITH DISTINCT neighbor
             MATCH (neighbor)-[r]-(conn)
-            WITH neighbor, type(r) + ' ' + coalesce(conn.name, '') AS conn_str
+            WITH neighbor, 
+                 CASE WHEN startNode(r) = neighbor THEN '-> ' + type(r) + ' -> ' + coalesce(conn.name, '')
+                 ELSE '<- ' + type(r) + ' <- ' + coalesce(conn.name, '') END AS conn_str
             WITH neighbor, collect(conn_str) AS connections
             RETURN id(neighbor) AS n_id, neighbor.name AS n_name, labels(neighbor)[0] AS n_type, neighbor.description AS n_desc, connections
             """
