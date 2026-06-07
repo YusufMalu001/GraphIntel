@@ -12,12 +12,16 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 def main():
-    neo4j_uri = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
+    neo4j_uri = os.getenv("NEO4J_URI", "neo4j+s://xxxx.databases.neo4j.io")
     neo4j_user = os.getenv("NEO4J_USER", "neo4j")
     neo4j_password = os.getenv("NEO4J_PASSWORD", "neo4j123")
     
     logger.info("Connecting to Neo4j...")
-    driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
+    driver = GraphDatabase.driver(
+        neo4j_uri, 
+        auth=(neo4j_user, neo4j_password),
+        max_connection_lifetime=3600
+    )
     
     embedder = GraphEmbedder()
     embeddings = embedder.embed_all_entities(driver)
