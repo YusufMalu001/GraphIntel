@@ -3,3 +3,11 @@ __pycache__/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Environment
+.env
+
+# Benchmark and Graph Results
+results/*.npy
+results/entity_embeddings.npy
+wandb/
